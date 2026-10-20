@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina Svampar – Svampletarna</title>
+    <link rel="stylesheet" href="mina-svampar.css">
+    <script src="mina-svampar.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Svampletarna</h1>
+        <nav aria-label="Huvudmeny">
+            <ul>
+                <li><a href="index.html">Alla Svampar</a></li>
+                <li><a href="mina-svampar.html" aria-current="page">Mina Svampar</a></li>
+                <li><a href="lookalikes.html">Svampguiden</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h2>Mina Svampar</h2>
+            <!-- Knappen är dold från start. JavaScript visar den när det finns svampar. -->
+            <button type="button" id="clear-button" hidden>Töm sparade svampar</button>
+        </div>
+
+        <!-- Dolt felmeddelande för fetch -->
+        <p id="error-message" role="alert" hidden>Något gick fel när svamparna skulle hämtas...</p>
+
+        <!-- Semantisk sektion för korten med en osynlig rubrik för skärmläsare -->
+        <section id="card-container" aria-label="Sparade svampar">
+            <h3 class="sr-only">Lista med sparade svampar</h3>
+        </section>
+
+        <!-- Visas när inga svampar är sparade -->
+        <section id="empty-state" hidden>
+            <h3>Du har inte sparat några svampar än</h3>
+            <p><a href="index.html">Utforska alla svampar</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Svampletarna – WU26</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+/* =========================================
+   1. GLOBALA INSTÄLLNINGAR & RESET
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-main: #d9d2b8;
+    --bg-salvia: #E8EDE1;
+    --text-brun: #33301A;
+    --card-green: rgb(187, 197, 132);
+    --card-beige: #DCD3BA;
+    --accent-gron: #5a6618;
+    --focus-orange: #f0af30;
+    --border-dark: #332e18;
+    --border-khaki: #807A5E;
+    --danger-red: #d32f2f;
+}
+
+/* Döljer rubriken visuellt men behåller den för skärmläsare */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+html {
+    /* Förhindrar att sidan hoppar i sidled när rullningslisten (scrollbar) visas/döljs */
+    overflow-y: scroll;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-brun);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+/* =========================================
+   2. GEMENSAM HEADER & NAVIGATION
+   ========================================= */
+.site-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem 0 1rem;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.8rem;
+    color: var(--accent-gron);
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 0 #000;
+}
+
+nav {
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+nav a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    font-size: 1.05rem;
+    padding: 0.5rem 1.2rem;
+    color: var(--bg-main);
+    background-color: var(--accent-gron);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--focus-orange);
+    color: #000;
+}
+
+nav a[aria-current="page"] {
+    background-color: var(--focus-orange);
+    color: #000;
+}
+
+/* =========================================
+   3. HUVUDINNEHÅLL & SIDRUBRIK
+   ========================================= */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.page-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: var(--accent-gron);
+    font-size: 1.8rem;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+    width: 100%;
+}
+
+#jsonError {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--danger-red);
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   4. SVAMPRUTNÄT & SVAMPKORT
+   ========================================= */
+#card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+#card-container article {
+    background-color: var(--card-green);
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+#card-container article h3 {
+    padding: 0.8rem 1rem 0.1rem 1rem;
+    font-size: 1.4rem;
+    color: var(--border-dark);
+}
+
+#card-container article .latin-name {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--border-dark);
+    padding: 0 1rem 0.6rem 1rem;
+}
+
+#card-container article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top: 1px solid var(--border-khaki);
+    border-bottom: 1px solid var(--border-khaki);
+    margin-bottom: 0.8rem;
+}
+
+#card-container article p {
+    padding: 0 1rem 0.8rem 1rem;
+    color: var(--border-dark);
+    font-size: 1rem;
+}
+
+#card-container article .location {
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   5. ETIKETTER (Badges för ätlighet)
+   ========================================= */
+.badge {
+    display: inline-block;
+    align-self: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0.4rem 1rem 0.6rem 1rem;
+}
+
+.badge-atlig {
+    color: #1b5e20;
+    border: 1px solid #1b5e20;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.badge-giftig {
+    color: var(--danger-red);
+    border: 1px solid var(--danger-red);
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.badge-dodlig {
+    color: #ffffff;
+    background-color: var(--danger-red);
+    border: 1px solid var(--danger-red);
+}
+
+/* =========================================
+   6. KNAPPAR PÅ SVAMPKORT
+   ========================================= */
+.save-button {
+    display: inline-block;
+    margin: auto 1rem 0 auto;
+    padding: 0.5rem 1.1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--bg-main);
+    background-color: var(--accent-gron);
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.save-button:hover,
+.save-button:focus-visible {
+    background-color: var(--focus-orange);
+    color: #000;
+}
+
+.save-button.is-saved {
+    background-color: var(--border-dark);
+    color: var(--bg-main);
+}
+
+/* =========================================
+   7. GEMENSAM FOOTER
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--accent-gron);
+    border-top: 1px solid var(--border-dark);
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+/* =========================================
+   8. DESKTOP (@media min-width: 768px)
+   ========================================= */
+@media (min-width: 768px) {
+    h1 {
+        padding-top: 1rem;
+        padding-left: 0.5rem;
+        font-size: 3rem;
+        text-align: left;
+    }
+
+    nav {
+        padding: 0.5rem 0;
+        margin-bottom: 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    nav a {
+        font-size: 1.35rem;
+        padding: 0.4rem 1.4rem;
+    }
+
+    h2 {
+        font-size: 2.3rem;
+        text-align: left;
+        width: auto;
+    }
+}
