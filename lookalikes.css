@@ -54,18 +54,18 @@ h1 {
     text-shadow: 1px 1px 0 #000;
 }
 
-nav {
+.site-header nav {
     margin-bottom: 1rem;
 }
 
-nav ul {
+.site-header nav ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-nav a {
+.site-header nav a {
     display: block;
     text-align: center;
     text-decoration: none;
@@ -79,13 +79,13 @@ nav a {
     transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-nav a:hover,
-nav a:focus-visible {
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
     background-color: var(--focus-orange);
     color: #000;
 }
 
-nav a[aria-current="page"] {
+.site-header nav a[aria-current="page"] {
     background-color: var(--focus-orange);
     color: #000;
 }
@@ -99,6 +99,8 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .page-header {
@@ -108,6 +110,7 @@ main {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    order: -2;
 }
 
 h2 {
@@ -124,17 +127,12 @@ h2 {
     font-weight: bold;
     color: var(--danger-red);
     margin-bottom: 1.5rem;
+    order: -1;
 }
 
 /* =========================================
    4. SVAMPGUIDENS KORT & SIDBLÄDDRING
    ========================================= */
-.guide-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
 .cards {
     display: flex;
     flex-direction: column;
@@ -182,6 +180,7 @@ h2 {
     align-items: center;
     gap: 2rem;
     order: -1;
+    margin-bottom: 1.5rem;
 }
 
 .page-nav button {
@@ -238,18 +237,18 @@ footer {
         text-align: left;
     }
 
-    nav {
+    .site-header nav {
         padding: 0.5rem 0;
         margin-bottom: 0.5rem;
     }
 
-    nav ul {
+    .site-header nav ul {
         flex-direction: row;
         justify-content: center;
         gap: 2rem;
     }
 
-    nav a {
+    .site-header nav a {
         font-size: 1.35rem;
         padding: 0.4rem 1.4rem;
     }
@@ -272,6 +271,7 @@ footer {
 
     .page-nav {
         order: 0;
-        margin-top: 0.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0;
     }
 }

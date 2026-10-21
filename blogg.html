@@ -24,16 +24,17 @@
     </header>
 
     <main>
-        <div class="page-header">
+        <header class="page-header">
             <h2>Föreningens Svampblogg</h2>
             <!-- Visar inloggningsstatus dynamiskt via TypeScript -->
             <p id="auth-status" class="auth-status" aria-live="polite"></p>
-        </div>
+        </header>
 
         <!-- Informationsruta som visas för utloggade besökare -->
         <section id="guest-notice" class="notice-card" aria-label="Inloggningsinformation" hidden>
             <h3>Vill du skriva ett inlägg eller kommentera?</h3>
-            <p>Alla besökare kan läsa våra blogginlägg, men du behöver vara inloggad för att skriva egna inlägg och kommentera.</p>
+            <p>Alla besökare kan läsa våra blogginlägg, men du behöver vara inloggad för att skriva egna inlägg och
+                kommentera.</p>
             <p><a href="login.html" class="action-link">Gå till inloggningen</a></p>
         </section>
 
@@ -43,12 +44,14 @@
             <form id="post-form">
                 <label>
                     Titel
-                    <input type="text" id="post-title" name="title" placeholder="T.ex. Höstens första kantarellfynd!" required>
+                    <input type="text" id="post-title" name="title" placeholder="T.ex. Höstens första kantarellfynd!"
+                        required>
                 </label>
 
                 <label>
                     Text
-                    <textarea id="post-text" name="text" rows="4" placeholder="Berätta om din svamptur, fyndplats eller tips..." required></textarea>
+                    <textarea id="post-text" name="text" rows="4"
+                        placeholder="Berätta om din svamptur, fyndplats eller tips..." required></textarea>
                 </label>
 
                 <p id="post-error" class="form-error" role="alert" hidden></p>
