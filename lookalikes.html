@@ -17,38 +17,37 @@
                 <li><a href="index.html">Alla Svampar</a></li>
                 <li><a href="mina-svampar.html">Mina Svampar</a></li>
                 <li><a href="lookalikes.html" aria-current="page">Svampguiden</a></li>
+                <li><a href="blogg.html">Blogg</a></li>
                 <li><a href="login.html">Logga in</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="page-header">
+        <header class="page-header">
             <h2>Svampguiden – Förväxlingssvampar</h2>
-        </div>
+        </header>
 
         <p role="alert" id="somethingHappened" hidden></p>
 
-        <div class="guide-layout">
-            <div class="cards">
-                <article class="card">
-                    <h3 id="leftTitle">Laddar...</h3>
-                    <p class="risk" id="leftRisk"></p>
-                    <ul class="features" id="leftIdentify"></ul>
-                </article>
-                <article class="card">
-                    <h3 id="rightTitle">Laddar...</h3>
-                    <p class="risk" id="rightRisk"></p>
-                    <ul class="features" id="rightIdentify"></ul>
-                </article>
-            </div>
+        <section class="cards" aria-label="Förväxlingssvampar">
+            <article class="card">
+                <h3 id="leftTitle">Laddar...</h3>
+                <p class="risk" id="leftRisk"></p>
+                <ul class="features" id="leftIdentify"></ul>
+            </article>
+            <article class="card">
+                <h3 id="rightTitle">Laddar...</h3>
+                <p class="risk" id="rightRisk"></p>
+                <ul class="features" id="rightIdentify"></ul>
+            </article>
+        </section>
 
-            <div class="page-nav">
-                <button type="button" id="prevButton">Tillbaka</button>
-                <span aria-live="polite" id="pageNumber"></span>
-                <button type="button" id="nextButton">Nästa</button>
-            </div>
-        </div>
+        <nav class="page-nav" aria-label="Sidbläddring">
+            <button type="button" id="prevButton">Tillbaka</button>
+            <span aria-live="polite" id="pageNumber"></span>
+            <button type="button" id="nextButton">Nästa</button>
+        </nav>
     </main>
 
     <footer>

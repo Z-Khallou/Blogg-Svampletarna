@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg – Svampletarna</title>
+    <link rel="stylesheet" href="blogg.css">
+    <script src="blogg.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Svampletarna</h1>
+        <nav aria-label="Huvudmeny">
+            <ul>
+                <li><a href="index.html">Alla Svampar</a></li>
+                <li><a href="mina-svampar.html">Mina Svampar</a></li>
+                <li><a href="lookalikes.html">Svampguiden</a></li>
+                <li><a href="blogg.html" aria-current="page">Blogg</a></li>
+                <li><a href="login.html">Logga in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <header class="page-header">
+            <h2>Föreningens Svampblogg</h2>
+            <!-- Visar inloggningsstatus dynamiskt via TypeScript -->
+            <p id="auth-status" class="auth-status" aria-live="polite"></p>
+        </header>
+
+        <!-- Informationsruta som visas för utloggade besökare -->
+        <section id="guest-notice" class="notice-card" aria-label="Inloggningsinformation" hidden>
+            <h3>Vill du skriva ett inlägg eller kommentera?</h3>
+            <p>Alla besökare kan läsa våra blogginlägg, men du behöver vara inloggad för att skriva egna inlägg och
+                kommentera.</p>
+            <p><a href="login.html" class="action-link">Gå till inloggningen</a></p>
+        </section>
+
+        <!-- Formulär för att skapa nytt blogginlägg (visas ENDAST när användaren är inloggad) -->
+        <section id="create-post-section" class="create-post-card" aria-label="Skapa nytt blogginlägg" hidden>
+            <h3>Skriv ett nytt blogginlägg</h3>
+            <form id="post-form">
+                <label>
+                    Titel
+                    <input type="text" id="post-title" name="title" placeholder="T.ex. Höstens första kantarellfynd!"
+                        required>
+                </label>
+
+                <label>
+                    Text
+                    <textarea id="post-text" name="text" rows="4"
+                        placeholder="Berätta om din svamptur, fyndplats eller tips..." required></textarea>
+                </label>
+
+                <p id="post-error" class="form-error" role="alert" hidden></p>
+
+                <button type="submit">Publicera inlägg</button>
+            </form>
+        </section>
+
+        <!-- Sektion där alla blogginlägg och kommentarer ritas ut dynamiskt med DOM-manipulation -->
+        <section id="posts-container" class="posts-container" aria-label="Blogginlägg">
+            <h3 class="sr-only">Publicerade blogginlägg</h3>
+            <!-- Här skapar TypeScript (blogg.ts) article-element för varje blogginlägg -->
+        </section>
+    </main>
+
+    <footer>
+        <p>Svampletarna – WU26</p>
+    </footer>
+</body>
+
+</html>
