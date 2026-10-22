@@ -1,9 +1,9 @@
 "use strict";
 // ============================================================================
-// Svampletarna – Bloggsida i TypeScript (Uppfyller samtliga G- och VG-krav)
+// Svampletarna – Bloggsida i TypeScript
 // ============================================================================
 // ----------------------------------------------------------------------------
-// 2. KLASSER / OBJEKT (Objektorienterad struktur i TypeScript – VG-krav)
+// 2. KLASSER / OBJEKT (Objektorienterad struktur i TypeScript)
 // ----------------------------------------------------------------------------
 // Klass för att skapa ett kommentarsobjekt
 class BlogComment {
@@ -62,7 +62,7 @@ function createInitialPosts() {
     const secondPost = new BlogPost("Höstens trattkantareller har äntligen kommit", "Zouhir", "Nu när frosten närmar sig står trattkantarellerna tätt i den fuktiga barrskogen. De är perfekta att torka och använda i soppor och grytor hela vintern.", [], "2026-10-19 kl. 16:40");
     return [secondPost, firstPost];
 }
-// Sparar alla blogginlägg och kommentarer permanent som ETT JSON-objekt i localStorage (VG-krav)
+// Sparar alla blogginlägg och kommentarer permanent som ETT JSON-objekt i localStorage
 function saveBlogToStorage(posts) {
     const storageObject = {
         posts: posts
@@ -104,7 +104,7 @@ const postsContainer = document.getElementById("posts-container");
 // Håller våra BlogPost-objekt i minnet under sidans livstid
 let blogPosts = [];
 // ----------------------------------------------------------------------------
-// 5. DOM-MANIPULATION (Bygger gränssnittet dynamiskt – G-krav)
+// 5. DOM-MANIPULATION (Bygger gränssnittet dynamiskt)
 // ----------------------------------------------------------------------------
 // Hjälpfunktion för att skapa ett HTML-element med text och valfri klass
 function createElementWithText(tag, text, className) {
@@ -177,7 +177,7 @@ function createCommentForm(post) {
         if (!commentText) {
             return;
         }
-        // Använder metoden på vårt BlogPost-objekt (VG: Objektorientering)
+        // Använder metoden på vårt BlogPost-objekt (Objektorientering)
         post.addComment(currentUser, commentText);
         // Sparar uppdaterade blogginlägg och kommentarer som JSON i localStorage
         saveBlogToStorage(blogPosts);
@@ -271,11 +271,11 @@ function handleCreatePost(event) {
         postErrorEl.hidden = true;
         postErrorEl.textContent = "";
     }
-    // Skapar ett nytt BlogPost-objekt (VG-krav: använt objekt i TypeScript)
+    // Skapar ett nytt BlogPost-objekt (Använt objekt i TypeScript)
     const newPost = new BlogPost(title, currentUser, text);
     // Lägger det nya inlägget överst i listan
     blogPosts.unshift(newPost);
-    // Sparar permanent som JSON-objekt i localStorage (VG-krav)
+    // Sparar permanent som JSON-objekt i localStorage
     saveBlogToStorage(blogPosts);
     // Återställer formuläret och uppdaterar DOM:en dynamiskt
     postForm.reset();
