@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Svampguiden – Svampletarna</title>
-    <link rel="stylesheet" href="lookalikes.css">
+    <title>Svampletarna - Svampguiden</title>
+    <link rel="stylesheet" href="style.css">
     <script src="lookalikes.js" defer></script>
 </head>
 
 <body>
-    <header class="site-header">
+    <header>
         <h1>Svampletarna</h1>
         <nav aria-label="Huvudmeny">
             <ul>
-                <li><a href="index.html">Alla Svampar</a></li>
-                <li><a href="mina-svampar.html">Mina Svampar</a></li>
+                <li><a href="index.html">Alla svampar</a></li>
+                <li><a href="mina-svampar.html">Mina svampar</a></li>
                 <li><a href="lookalikes.html" aria-current="page">Svampguiden</a></li>
                 <li><a href="blogg.html">Blogg</a></li>
                 <li><a href="login.html">Logga in</a></li>
@@ -24,26 +24,15 @@
     </header>
 
     <main>
-        <header class="page-header">
-            <h2>Svampguiden – Förväxlingssvampar</h2>
-        </header>
+        <h2>Svampguiden – Förväxlingssvampar</h2>
+        <p role="alert" id="guide-error" class="error" hidden></p>
 
-        <p role="alert" id="somethingHappened" hidden></p>
-
-        <section class="cards" aria-label="Förväxlingssvampar">
-            <article class="card">
-                <h3 id="leftTitle">Laddar...</h3>
-                <p class="risk" id="leftRisk"></p>
-                <ul class="features" id="leftIdentify"></ul>
-            </article>
-            <article class="card">
-                <h3 id="rightTitle">Laddar...</h3>
-                <p class="risk" id="rightRisk"></p>
-                <ul class="features" id="rightIdentify"></ul>
-            </article>
+        <section id="guide-cards" class="guide-cards" aria-label="Förväxlingspar">
+            <h3 class="sr-only">Jämförelse av förväxlingssvampar</h3>
+            <!-- Här skapar JavaScript två article-kort åt gången -->
         </section>
 
-        <nav class="page-nav" aria-label="Sidbläddring">
+        <nav class="pagination" aria-label="Sidbläddring">
             <button type="button" id="prevButton">Tillbaka</button>
             <span aria-live="polite" id="pageNumber"></span>
             <button type="button" id="nextButton">Nästa</button>

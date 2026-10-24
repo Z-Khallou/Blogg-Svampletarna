@@ -2,27 +2,72 @@
 // Svampguiden: visar förväxlingssvampar två par åt gången
 // ==========================================
 
-let allPairs = [];
-let index = 0;
-
-const leftRisk = document.getElementById("leftRisk");
-const leftTitle = document.getElementById("leftTitle");
-const leftList = document.getElementById("leftIdentify");
-
-const rightRisk = document.getElementById("rightRisk");
-const rightTitle = document.getElementById("rightTitle");
-const rightList = document.getElementById("rightIdentify");
-
+const guideCards = document.getElementById("guide-cards");
+const guideError = document.getElementById("guide-error");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const pageNumber = document.getElementById("pageNumber");
-const somethingHappened = document.getElementById("somethingHappened");
 
-function init() {
-    getList();
+let allPairs = [];
+let index = 0;
+
+// Skapar ett article-kort för ett förväxlingspar dynamiskt
+function createPairCard(pair) {
+    const article = document.createElement("article");
+
+    const title = document.createElement("h3");
+    title.textContent = pair.par;
+    article.appendChild(title);
+
+    const risk = document.createElement("p");
+    risk.className = "risk";
+    risk.textContent = pair.risk;
+    article.appendChild(risk);
+
+    const list = document.createElement("ul");
+    pair.särskiljande.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+    article.appendChild(list);
+
+    return article;
 }
 
-async function getList() {
+// Visar två förväxlingspar åt gången och uppdaterar sidnumreringen
+function displayList() {
+    const srHeading = guideCards.querySelector(".sr-only");
+    guideCards.replaceChildren(...(srHeading ? [srHeading] : []));
+
+    const currentPairs = allPairs.slice(index, index + 2);
+    currentPairs.forEach(pair => {
+        guideCards.appendChild(createPairCard(pair));
+    });
+
+    const currentPage = index / 2 + 1;
+    const totalPages = Math.ceil(allPairs.length / 2);
+    pageNumber.textContent = `Sida ${currentPage} av ${totalPages}`;
+
+    prevButton.disabled = index <= 0;
+    nextButton.disabled = index >= allPairs.length - 2;
+}
+
+prevButton.addEventListener("click", () => {
+    if (index > 0) {
+        index -= 2;
+        displayList();
+    }
+});
+
+nextButton.addEventListener("click", () => {
+    if (index < allPairs.length - 2) {
+        index += 2;
+        displayList();
+    }
+});
+
+async function init() {
     try {
         const response = await fetch("speciellaEgenskaper.json");
         if (!response.ok) {
@@ -30,76 +75,12 @@ async function getList() {
         }
         const data = await response.json();
         allPairs = data.särskiljande_egenskaper;
-
         displayList();
     } catch (error) {
         console.error("Fel:", error);
-        somethingHappened.hidden = false;
-        somethingHappened.textContent = "Något gick fel när sidan lästes in, försök igen senare.";
-        rightTitle.textContent = "";
-        leftTitle.textContent = "";
+        guideError.hidden = false;
+        guideError.textContent = "Något gick fel när sidan lästes in, försök igen senare.";
     }
 }
-
-function displayList() {
-    leftList.textContent = "";
-    const leftPair = allPairs[index];
-    leftTitle.textContent = leftPair.par;
-    leftRisk.textContent = leftPair.risk;
-    const leftFeatures = leftPair.särskiljande;
-
-    leftFeatures.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        leftList.appendChild(li);
-    });
-
-    const rightPair = allPairs[index + 1];
-
-    rightTitle.textContent = "";
-    rightRisk.textContent = "";
-    rightList.textContent = "";
-
-    if (rightPair !== undefined) {
-        rightTitle.textContent = rightPair.par;
-        rightRisk.textContent = rightPair.risk;
-
-        const rightFeatures = rightPair.särskiljande;
-
-        rightFeatures.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = item;
-            rightList.appendChild(li);
-        });
-    }
-
-    showPageNumber();
-    nextButton.disabled = (index >= allPairs.length - 2);
-    prevButton.disabled = (index <= 0);
-}
-
-function showPageNumber() {
-    const currentPage = index / 2 + 1;
-    const totalPages = Math.ceil(allPairs.length / 2);
-
-    pageNumber.textContent = `Sida ${currentPage} av ${totalPages}`;
-}
-
-function nextPair() {
-    if (index < allPairs.length - 2) {
-        index += 2;
-        displayList();
-    }
-}
-
-function prevPair() {
-    if (index > 0) {
-        index -= 2;
-        displayList();
-    }
-}
-
-nextButton.addEventListener("click", nextPair);
-prevButton.addEventListener("click", prevPair);
 
 init();

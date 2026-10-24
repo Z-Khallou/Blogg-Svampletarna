@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logga in – Svampletarna</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Svampletarna - Logga in</title>
+    <link rel="stylesheet" href="style.css">
     <script src="login.js" defer></script>
 </head>
 
 <body>
-    <header class="site-header">
+    <header>
         <h1>Svampletarna</h1>
         <nav aria-label="Huvudmeny">
             <ul>
-                <li><a href="index.html">Alla Svampar</a></li>
-                <li><a href="mina-svampar.html">Mina Svampar</a></li>
+                <li><a href="index.html">Alla svampar</a></li>
+                <li><a href="mina-svampar.html">Mina svampar</a></li>
                 <li><a href="lookalikes.html">Svampguiden</a></li>
                 <li><a href="blogg.html">Blogg</a></li>
                 <li><a href="login.html" aria-current="page">Logga in</a></li>
@@ -24,12 +24,9 @@
     </header>
 
     <main>
-        <header class="page-header">
-            <h2>Medlemsinloggning</h2>
-        </header>
+        <h2>Medlemsinloggning</h2>
 
-        <section class="login-card" aria-label="Inloggning">
-            <!-- Här skriver JavaScript ut inloggningsmeddelanden -->
+        <section class="form-card login-box" aria-label="Inloggning">
             <p id="message" aria-live="polite" hidden></p>
 
             <form id="login-form">
