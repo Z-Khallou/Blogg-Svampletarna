@@ -1,9 +1,9 @@
 "use strict";
 // ============================================================================
-// Svampletarna – Bloggsida i TypeScript (Uppfyller samtliga G- och VG-krav)
+// Svampletarna – Bloggsida i TypeScript
 // ============================================================================
 // ----------------------------------------------------------------------------
-// 2. KLASSER / OBJEKT (Objektorienterad struktur i TypeScript – VG-krav)
+// 2. KLASSER / OBJEKT (Objektorienterad struktur i TypeScript)
 // ----------------------------------------------------------------------------
 // Klass för att skapa ett kommentarsobjekt
 class BlogComment {
@@ -92,7 +92,7 @@ const postForm = document.getElementById("post-form");
 const postsContainer = document.getElementById("posts-container");
 let blogPosts = [];
 // ----------------------------------------------------------------------------
-// 5. DOM-MANIPULATION (Bygger gränssnittet dynamiskt – G-krav)
+// 5. DOM-MANIPULATION (Bygger gränssnittet dynamiskt)
 // ----------------------------------------------------------------------------
 // Hjälpfunktion för att skapa ett HTML-element med text
 function createTextElement(tag, text, className) {

@@ -1,7 +1,6 @@
 /* ==========================================================================
    style.css – Gemensam grundlayout & stilmall för Svampletarna
-   (Används av index.html, mina-svampar.html, lookalikes.html, login.html
-    samt som baslayout för blogg.html)
+   (Används av index.html, mina-svampar.html, lookalikes.html, login.html)
    ========================================================================== */
 
 * {
@@ -44,7 +43,7 @@ body {
 /* ==========================================================================
    1. ÖVERGRIPANDE LAYOUT (Header, Main, Footer)
    ========================================================================== */
-body > header,
+body>header,
 main,
 footer {
     width: 100%;
@@ -72,7 +71,7 @@ h1 {
 }
 
 /* Exakt samma placering och marginal för h2 på alla sidor så den aldrig hoppar */
-main > h2,
+main>h2,
 .page-top {
     margin: 0.5rem 0 1.5rem 0;
 }
@@ -85,7 +84,7 @@ main > h2,
     gap: 1rem;
 }
 
-main > h2,
+main>h2,
 .page-top h2 {
     text-align: center;
     font-size: 1.8rem;
@@ -303,9 +302,23 @@ button:disabled {
     margin-bottom: 2rem;
 }
 
+/* Inloggningssidan har heltäckande bakgrundsbild samt hög kontrast på kort och rubriker */
+.login-page {
+    background: #e6e1ce url("svampkorg.jpg") center / cover fixed;
+}
+
+.login-page h1,
+.login-page main>h2,
+.login-page footer {
+    background-color: rgba(230, 225, 206, 0.9);
+    border-radius: 6px;
+}
+
 .login-box {
     max-width: 28rem;
     margin: 0 auto 2rem auto;
+    background-color: rgba(247, 245, 236, 0.95);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
 }
 
 form {
@@ -383,7 +396,7 @@ footer {
         text-align: left;
     }
 
-    main > h2,
+    main>h2,
     .page-top h2 {
         font-size: 2.2rem;
         text-align: left;

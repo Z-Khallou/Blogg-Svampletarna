@@ -1,5 +1,5 @@
 // ============================================================================
-// Svampletarna – Bloggsida i TypeScript (Uppfyller samtliga G- och VG-krav)
+// Svampletarna – Bloggsida i TypeScript
 // ============================================================================
 
 // ----------------------------------------------------------------------------
@@ -30,7 +30,7 @@ interface IBlogStorageData {
 }
 
 // ----------------------------------------------------------------------------
-// 2. KLASSER / OBJEKT (Objektorienterad struktur i TypeScript – VG-krav)
+// 2. KLASSER / OBJEKT (Objektorienterad struktur i TypeScript)
 // ----------------------------------------------------------------------------
 
 // Klass för att skapa ett kommentarsobjekt
@@ -134,7 +134,7 @@ function createInitialPosts(): BlogPost[] {
     return [secondPost, firstPost];
 }
 
-// Sparar alla blogginlägg och kommentarer permanent som ETT JSON-objekt i localStorage (VG-krav)
+// Sparar alla blogginlägg och kommentarer permanent som ETT JSON-objekt i localStorage
 function saveBlogToStorage(posts: BlogPost[]): void {
     const storageObject: IBlogStorageData = { posts };
     localStorage.setItem(BLOG_STORAGE_KEY, JSON.stringify(storageObject));
@@ -175,7 +175,7 @@ const postsContainer = document.getElementById("posts-container") as HTMLElement
 let blogPosts: BlogPost[] = [];
 
 // ----------------------------------------------------------------------------
-// 5. DOM-MANIPULATION (Bygger gränssnittet dynamiskt – G-krav)
+// 5. DOM-MANIPULATION (Bygger gränssnittet dynamiskt)
 // ----------------------------------------------------------------------------
 
 // Hjälpfunktion för att skapa ett HTML-element med text
